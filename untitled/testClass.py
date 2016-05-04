@@ -1,36 +1,58 @@
-class algorythm :
+from abc import ABCMeta, abstractmethod
+
+class algorithm (metaclass=ABCMeta):
+    @abstractmethod
     def visitLarge(large):
-        print("")
+        pass
+    @abstractmethod
     def visitSmall(small):
-        print("")
+        pass
 
-
-class quick(algorythm):
+class quick(algorithm):
     def visitLarge(large):
         print("大きいデータをクイックソートします")
     def visitSmall(small):
         print("小さいデータをクイックソートします")
 
-class bogo(algorythm):
+class bogo(algorithm):
     def visitLarge(large):
         print("大きいデータをボゴソートします")
     def visitSmall(small):
         print("小さいデータをボゴソートします")
 
-class item:
-    def accept(algorythm):
-        print("")
+class random(algorithm):
+    def visitLarge(large):
+        print("大きいデータをランダムソートします")
+    def visitSmall(small):
+        print("小さいデータをランダムソートします")
 
+
+class item:
+    def accept(algorithm):
+        pass
 
 class large(item):
-    def accept(algorythm):
-        algorythm.visitLarge(large)
-
+    def accept(algorithm):
+        algorithm.visitLarge(large)
 
 class small(item):
-    def accept(algorythom):
-       algorythm.visitSmall(small)
+    def accept(algorithm):
+        algorithm.visitSmall(small)
 
+class medium(item):
+    def accept(selfalgorithm):
+        algorithm.visitMedium(medium)
 
-
+class sample:
+    def decideAlgorythm(self, algorithmID, dataTypeID):
+        if algorithmID == 1:
+            if dataTypeID == 1:
+                print("大きいデータをクイックソートします")
+            else:
+                print("小さいデータをクイックソートします")
+        else:
+            if dataTypeID == 2:
+                print("大きいデータをボゴソートします")
+            else:
+                print("小さいデータをボゴソートします")
 
